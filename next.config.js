@@ -1,9 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable Turbopack
-  experimental: {
-    turbo: {}
-  },
+  // Default Next.js configuration
+  reactStrictMode: true,
+  swcMinify: true,
   
   // Environment variables
   env: {
