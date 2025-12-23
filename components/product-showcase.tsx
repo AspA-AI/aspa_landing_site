@@ -189,10 +189,6 @@ export function ProductShowcase({ id }: ProductShowcaseProps) {
           ))}
         </div>
 
-        {/* Scroll Indicator */}
-        <div className="text-center mt-8">
-          <p className="text-sm text-muted-foreground">Hover to pause • Infinite auto-scrolling showcase</p>
-        </div>
       </div>
 
       <style jsx>{`

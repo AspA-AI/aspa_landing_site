@@ -90,7 +90,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-border text-center text-sm text-muted-foreground">
-          <p>© 2025 AspA! All rights reserved. Building the future of human-AI collaboration. | humexaai.com</p>
+          <p>© 2025 AspA! All rights reserved. Building the future of human-AI collaboration. | aspai.com</p>
         </div>
       </div>
     </footer>

@@ -188,14 +188,14 @@ export function ContactForm({ id }: ContactFormProps) {
           )}
         </Card>
 
-        <div className="mt-8 text-center">
+        {/* <div className="mt-8 text-center">
           <p className="text-sm text-muted-foreground">
             Or reach us directly at{" "}
             <a href="mailto:contact@aspai.com" className="text-[#D4AF37] hover:underline font-medium">
               contact@aspai.com
             </a>
           </p>
-        </div>
+        </div> */}
       </div>
     </section>
   )
