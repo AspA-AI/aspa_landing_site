@@ -16,7 +16,7 @@ const products = [
     mobileImage: "/mobile-ai-contract-chatbot-interface-dark-theme.jpg",
     tags: ["NLP", "Document Analysis", "Legal Tech"],
     demoLink: "https://contract-analyser.demo.com",
-    githubLink: "https://github.com/aspai/contract-analyser",
+    githubLink: "https://github.com/AspA-AI/rag_contract_implementation",
   },
   {
     title: "Assistant Chatbots",
@@ -26,7 +26,7 @@ const products = [
     mobileImage: "/mobile-chatbot-assistant-messaging-interface-dark-.jpg",
     tags: ["Conversational AI", "Automation", "Support"],
     demoLink: "https://assistant-chatbot.demo.com",
-    githubLink: "https://github.com/aspai/assistant-chatbot",
+    githubLink: "https://github.com/AspA-AI/redash_assistant_plugin",
   },
   {
     title: "AI-Assisted Research & Report Generator",
@@ -36,7 +36,7 @@ const products = [
     mobileImage: "/mobile-research-report-generator-interface-dark-th.jpg",
     tags: ["Research", "Content Generation", "Analytics"],
     demoLink: "https://research-generator.demo.com",
-    githubLink: "https://github.com/aspai/research-generator",
+    githubLink: "",
   },
   {
     title: "Prompt Generator",
@@ -46,7 +46,7 @@ const products = [
     mobileImage: "/mobile-prompt-generator-app-interface-dark-theme.jpg",
     tags: ["Prompt Engineering", "AI Optimization", "Productivity"],
     demoLink: "https://prompt-generator.demo.com",
-    githubLink: "https://github.com/aspai/prompt-generator",
+    githubLink: "https://github.com/AspA-AI/prompt_generation_app",
   },
   {
     title: "Personalized Mock Interview Generator",
@@ -56,7 +56,7 @@ const products = [
     mobileImage: "/mobile-interview-practice-app-with-ai-feedback-dar.jpg",
     tags: ["EdTech", "Career Development", "Interview Prep"],
     demoLink: "https://mock-interview.demo.com",
-    githubLink: "https://github.com/aspai/mock-interview",
+    githubLink: "",
   },
 ]
 
@@ -170,20 +170,21 @@ export function ProductShowcase({ id }: ProductShowcaseProps) {
                   </div>
                 </div>
 
-                {/* <div className="flex gap-3 pt-4">
-                  <Button asChild size="sm" className="flex-1 bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white">
+                <div className="flex gap-3 pt-4">
+                {/*  <Button asChild size="sm" className="flex-1 bg-[#D4AF37] hover:bg-[#D4AF37]/90 text-white">
                     <Link href={product.demoLink} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2 text-white" />
                       View Demo
                     </Link>
                   </Button>
+                */}
                   <Button asChild variant="outline" size="sm" className="flex-1 bg-transparent border-[#D4AF37]/30 text-foreground hover:bg-[#D4AF37]/10">
                     <Link href={product.githubLink} target="_blank" rel="noopener noreferrer">
-                      <Github className="h-4 w-4 mr-2 text-[#D4AF37]" />
-                      Source Code
+                      {/* <Github className="h-4 w-4 mr-2 text-[#D4AF37]" /> */}
+                      Explore Technology
                     </Link>
                   </Button>
-                </div> */}
+                </div> 
               </div>
             </Card>
           ))}
