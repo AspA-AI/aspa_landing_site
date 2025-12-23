@@ -1,17 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Default Next.js configuration
+  // Enable React Strict Mode
   reactStrictMode: true,
-  swcMinify: true,
   
-  // Environment variables
+  // Environment variables to be exposed to the browser
   env: {
     NEXT_PUBLIC_RESEND_API_KEY: process.env.NEXT_PUBLIC_RESEND_API_KEY,
   },
   
-  // For debugging (optional)
-  logging: {
-    fetches: {
+  // Enable full URL logging in development
+  experimental: {
+    logging: {
+      level: 'verbose',
       fullUrl: true
     }
   }
