@@ -10,8 +10,8 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "AspA! - AI Automation for Professional Productivity",
   description:
-    "Multi-sector AI automation platform augmenting human productivity through specialized AI agents. Featuring Navira for real estate automation.",
-  metadataBase: new URL("https://aspa!.com"),
+    "Multi-sector AI automation platform augmenting human productivity through specialized AI agents.",
+  metadataBase: new URL("https://aspai.com"),
   generator: "v0.app",
   icons: {
     icon: [

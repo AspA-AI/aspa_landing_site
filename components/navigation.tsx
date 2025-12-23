@@ -46,9 +46,6 @@ export function Navigation() {
             <Link href="/#about" className="block text-muted-foreground hover:text-foreground transition-colors">
               About
             </Link>
-            <Link href="/navira" className="block text-muted-foreground hover:text-foreground transition-colors">
-              Navira Product
-            </Link>
             <Link href="/#vision" className="block text-muted-foreground hover:text-foreground transition-colors">
               Vision
             </Link>
