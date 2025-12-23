@@ -29,7 +29,7 @@ const products = [
     githubLink: "https://github.com/AspA-AI/redash_assistant_plugin",
   },
   {
-    title: "AI-Assisted Research & Report Generator",
+    title: "AI Researcher & Report Generator",
     description:
       "Automated research system that gathers, analyzes, and synthesizes information to generate comprehensive reports in minutes.",
     desktopImage: "/ai-research-automation-dashboard-with-data-visuali.jpg",
