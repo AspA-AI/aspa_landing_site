@@ -8,13 +8,7 @@ const nextConfig = {
     NEXT_PUBLIC_RESEND_API_KEY: process.env.NEXT_PUBLIC_RESEND_API_KEY,
   },
   
-  // Enable full URL logging in development
-  experimental: {
-    logging: {
-      level: 'verbose',
-      fullUrl: true
-    }
-  }
+  // Add any other Next.js configuration options here
 };
 
 // Debug log for environment variables (server-side only)
