@@ -2,14 +2,12 @@ import { useEffect, useRef, useState } from "react"
 
 type ChatBotLoopProps = {
   title: string
-  icon: React.ReactNode
   messages: string[]
   accentColor?: string
 }
 
 export default function ChatBotLoop({
   title,
-  icon,
   messages,
   accentColor = "#D4AF37",
 }: ChatBotLoopProps) {
@@ -79,7 +77,6 @@ export default function ChatBotLoop({
       {/* Header */}
       <div className="flex items-center gap-3 px-6 py-4 bg-gradient-800/80 text-white">
         <div className="p-2 bg-[#D4AF37] rounded-full backdrop-blur-sm">
-          {icon}
         </div>
         <span className="font-semibold text-lg">{title}</span>
       </div>

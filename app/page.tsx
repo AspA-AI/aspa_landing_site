@@ -142,7 +142,6 @@ AspA! <br /> <span className="transition-colors duration-200
               <ChatBotLoop
                 key={index}
                 title={card.title}
-                icon={card.icon}
                 messages={card.messages}
               />
             ))}
