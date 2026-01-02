@@ -18,52 +18,76 @@ export default function ChatBotLoop({
   const chatMessages = messages
 
   useEffect(() => {
-    const container = containerRef.current
-    const content = contentRef.current
-    if (!container || !content) return
+    const container = containerRef.current;
+    const content = contentRef.current;
+    if (!container || !content) return;
 
-    const clone = content.cloneNode(true)
-    content.after(clone)
+    // Create a clone for seamless looping
+    const clone = content.cloneNode(true) as HTMLElement;
+    content.after(clone);
 
-    let scrollPos = 0
-    const speed = 30
-    let animationFrameId: number
-    let isPaused = false
+    let scrollPos = 0;
+    const speed = 1; // Adjust speed as needed
+    let animationFrameId: number;
+    let isPaused = false;
+    let lastTimestamp = performance.now();
 
-    const animate = () => {
-      if (isPaused) return
-      scrollPos += speed / 60
+    const animate = (timestamp: number) => {
+      if (isPaused) return;
 
-      if (scrollPos >= content.scrollHeight) {
-        scrollPos = 0
+      const deltaTime = timestamp - lastTimestamp;
+      lastTimestamp = timestamp;
+
+      if (deltaTime > 0) {
+        scrollPos += (speed * deltaTime) / 16; // Normalize to 60fps
+
+        // Reset position when we reach the end of the original content
+        if (scrollPos >= content.scrollHeight) {
+          scrollPos = 0;
+          container.scrollTop = 0;
+        } else {
+          container.scrollTop = scrollPos;
+        }
       }
 
-      container.scrollTop = scrollPos
-      animationFrameId = requestAnimationFrame(animate)
-    }
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
-    animationFrameId = requestAnimationFrame(animate)
+    // Start the animation
+    const startAnimation = () => {
+      lastTimestamp = performance.now();
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
     const onEnter = () => {
-      isPaused = true
-      container.style.overflowY = "auto"
-    }
+      isPaused = true;
+      container.style.overflowY = "auto";
+    };
 
     const onLeave = () => {
-      isPaused = false
-      container.style.overflowY = "hidden"
-      container.scrollTop = scrollPos % content.scrollHeight
-      requestAnimationFrame(animate)
-    }
+      isPaused = false;
+      container.style.overflowY = "hidden";
+      lastTimestamp = performance.now();
+      requestAnimationFrame(animate);
+    };
 
-    container.addEventListener("mouseenter", onEnter)
-    container.addEventListener("mouseleave", onLeave)
+    // Initial setup
+    container.style.overflowY = "hidden";
+    startAnimation();
 
+    // Add event listeners
+    container.addEventListener("mouseenter", onEnter);
+    container.addEventListener("mouseleave", onLeave);
+
+    // Cleanup
     return () => {
-      cancelAnimationFrame(animationFrameId)
-      container.removeEventListener("mouseenter", onEnter)
-      container.removeEventListener("mouseleave", onLeave)
-    }
+      cancelAnimationFrame(animationFrameId);
+      container.removeEventListener("mouseenter", onEnter);
+      container.removeEventListener("mouseleave", onLeave);
+      if (clone.parentNode === container) {
+        container.removeChild(clone);
+      }
+    };
   }, [chatMessages])
 
   // Handle form submission - just clear the input
@@ -84,25 +108,33 @@ export default function ChatBotLoop({
       {/* Chat Body */}
       <div 
         ref={containerRef}
-        className="h-[calc(100%-120px)] p-4 overflow-y-auto chat-scrollbar"
+        className="h-[calc(100%-120px)] p-4 overflow-hidden chat-scrollbar"
       >
-        <div ref={contentRef} className="space-y-4">
-          {chatMessages.map((msg, i) => (
-            <div
-              key={i}
-              className={`flex ${i % 2 === 0 ? 'justify-end' : 'justify-start'}`}
-            >
+        <div ref={contentRef} className="space-y-4 w-full">
+          {chatMessages.map((msg, i) => {
+            const isEven = i % 2 === 0;
+            return (
               <div
-                className={`max-w-[85%] px-4 py-3 rounded-2xl shadow-lg ${
-                  i % 2 === 0
-                    ? "bg-[#D4AF37]  text-white"
-                    : "bg-gray-700/90 text-[#D4AF37]"
-                }`}
+                key={i}
+                className={`flex w-full ${isEven ? 'justify-end' : 'justify-start'}`}
               >
-                {msg}
+                <div
+                  className={`px-4 py-3 rounded-2xl shadow-lg ${
+                    isEven
+                      ? "bg-[#D4AF37] text-white ml-[15%]"
+                      : "bg-gray-700/90 text-[#D4AF37] mr-[15%]"
+                  }`}
+                  style={{
+                    maxWidth: '70%',
+                    minWidth: '30%',
+                    wordBreak: 'break-word'
+                  }}
+                >
+                  {msg}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
 
