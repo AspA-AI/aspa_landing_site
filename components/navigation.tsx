@@ -3,8 +3,9 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Menu } from "lucide-react"
+import { Menu, Moon, Sun } from "lucide-react"
 import { useState } from "react"
+import { ThemeToggle } from "./theme-toggle"
 
 export function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -29,9 +30,12 @@ export function Navigation() {
             <Link href="/#contact" className="text-muted-foreground hover:text-foreground transition-colors">
               Contact
             </Link>
-            <Button asChild>
-              <Link href="#contact">Get Started</Link>
-            </Button>
+            <div className="flex items-center gap-4">
+              <ThemeToggle />
+              <Button asChild>
+                <Link href="#contact">Get Started</Link>
+              </Button>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -46,7 +50,11 @@ export function Navigation() {
             <Link href="/#about" className="block text-muted-foreground hover:text-foreground transition-colors">
               About
             </Link>
-            <Link href="/#vision" className="block text-muted-foreground hover:text-foreground transition-colors">
+            <div className="flex items-center justify-between py-2">
+              <span className="text-muted-foreground">Theme</span>
+              <ThemeToggle />
+            </div>
+            <Link href="/#vision" className="block text-muted-foreground hover:text-foreground transition-colors pt-2">
               Vision
             </Link>
             <Button asChild className="w-full">

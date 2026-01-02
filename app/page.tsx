@@ -32,7 +32,10 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center max-w-4xl mx-auto space-y-8">
             <div className="inline-block animate-fade-in-up">
-              <span className="text-[#D4AF37] text-sm font-mono bg-[#D4AF37]/10 px-4 py-2 rounded-full border border-[#D4AF37]/20">
+              <span className="text-sm font-mono px-4 py-2 rounded-full border transition-colors duration-200
+                text-[#D4AF37] bg-[#D4AF37]/10 border-[#D4AF37]/20
+                [data-theme='purple']:text-purple-500 [data-theme='purple']:bg-purple-500/10 [data-theme='purple']:border-purple-500/20
+                [data-theme='blue']:text-blue-500 [data-theme='blue']:bg-blue-500/10 [data-theme='blue']:border-blue-500/20">
                 AI for Professional Productivity
               </span>
             </div>
@@ -40,7 +43,12 @@ export default function HomePage() {
               className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight text-balance animate-fade-in-up"
               style={{ animationDelay: "0.1s" }}
             >
-              AspA! <br /> <span className="text-[#D4AF37]">AI automation</span>
+AspA! <br /> <span className="transition-colors duration-200
+                text-[#D4AF37]
+                [data-theme='purple']:text-purple-500
+                [data-theme='blue']:text-blue-500">
+                AI automation
+              </span>
             </h1>
             <p
               className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto text-pretty animate-fade-in-up"
