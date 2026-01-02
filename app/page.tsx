@@ -11,6 +11,8 @@ import { Brain, Zap, Shield, Target, ArrowRight, CheckCircle2, Sparkles, ArrowDo
 import { AnimatedGridBackground } from "@/components/animated-grid-background"
 import { ProductShowcase } from "@/components/product-showcase"
 import { ContactForm } from "@/components/contact-form"
+import ChatBotLoop  from "@/components/ChatBotLoop"
+import { chatbotCards } from "@/components/chatbot-cards"
 import { motion } from "framer-motion"
 
 const scrollToContact = (e: React.MouseEvent) => {
@@ -34,8 +36,7 @@ export default function HomePage() {
             <div className="inline-block animate-fade-in-up">
               <span className="text-sm font-mono px-4 py-2 rounded-full border transition-colors duration-200
                 text-[#D4AF37] bg-[#D4AF37]/10 border-[#D4AF37]/20
-                [data-theme='purple']:text-purple-500 [data-theme='purple']:bg-purple-500/10 [data-theme='purple']:border-purple-500/20
-                [data-theme='blue']:text-blue-500 [data-theme='blue']:bg-blue-500/10 [data-theme='blue']:border-blue-500/20">
+                [data-theme='purple']:text-purple-500 [data-theme='purple']:bg-purple-500/10 [data-theme='purple']:border-purple-500/20">
                 AI for Professional Productivity
               </span>
             </div>
@@ -45,8 +46,7 @@ export default function HomePage() {
             >
 AspA! <br /> <span className="transition-colors duration-200
                 text-[#D4AF37]
-                [data-theme='purple']:text-purple-500
-                [data-theme='blue']:text-blue-500">
+                [data-theme='purple']:text-purple-500">
                 AI automation
               </span>
             </h1>
@@ -137,79 +137,17 @@ AspA! <br /> <span className="transition-colors duration-200
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="p-8 bg-white text-black border-gray-200 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 relative overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#D4AF37]" />
-              <Brain className="h-12 w-12 text-[#D4AF37] mb-4 ml-2" />
-              <h3 className="text-xl font-bold mb-3 pl-2">Sector-Specific AI Agents</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4 pl-2">
-                Each agent focuses on discrete, specialized tasks: communication, data processing, predictive insights,
-                workflow management, and compliance checks.
-              </p>
-              <div className="space-y-2 pl-2">
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Task-specific optimization</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Independent operation</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Intelligent communication</span>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-8 bg-white text-black border-gray-200 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 relative overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#D4AF37]" />
-              <Zap className="h-12 w-12 text-[#D4AF37] mb-4 ml-2" />
-              <h3 className="text-xl font-bold mb-3 pl-2">Human-Centered Augmentation</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4 pl-2">
-                AI executes repetitive, low-value tasks while humans retain strategic decision-making, creative
-                problem-solving, and critical oversight.
-              </p>
-              <div className="space-y-2 pl-2">
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Augmentation not replacement</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Higher adoption rates</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Ethical technology deployment</span>
-                </div>
-              </div>
-            </Card>
-
-            <Card className="p-8 bg-white text-black border-gray-200 hover:border-primary/30 transition-all hover:shadow-lg hover:shadow-primary/5 relative overflow-hidden">
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#D4AF37]" />
-              <Shield className="h-12 w-12 text-[#D4AF37] mb-4 ml-2" />
-              <h3 className="text-xl font-bold mb-3 pl-2">Flexible Data Integration</h3>
-              <p className="text-muted-foreground leading-relaxed mb-4 pl-2">
-                Agents consume structured data, unstructured text, IoT feeds, and real-time external data to
-                continuously improve predictive performance.
-              </p>
-              <div className="space-y-2 pl-2">
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Multi-source integration</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Real-time processing</span>
-                </div>
-                <div className="flex items-center gap-2 text-sm">
-                  <CheckCircle2 className="h-4 w-4 text-[#D4AF37]" />
-                  <span>Continuous learning</span>
-                </div>
-              </div>
-            </Card>
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {chatbotCards.map((card, index) => (
+              <ChatBotLoop
+                key={index}
+                title={card.title}
+                icon={card.icon}
+                messages={card.messages}
+              />
+            ))}
           </div>
+
         </div>
       </section>
 

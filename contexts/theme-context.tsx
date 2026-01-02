@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-type Theme = 'default' | 'purple' | 'blue';
+type Theme = 'purple' | 'default';
 
 type ThemeContextType = {
   theme: Theme;
@@ -35,9 +35,9 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     // Only run on client
     if (typeof window === 'undefined') return;
     
-    // Get saved theme or default to 'default'
+    // Get saved theme or default to 'purple'
     const savedTheme = localStorage.getItem('theme') as Theme | null;
-    const initialTheme = (savedTheme && ['default', 'purple', 'blue'].includes(savedTheme)) ? savedTheme as Theme : 'default';
+    const initialTheme = (savedTheme && ['default', 'purple'].includes(savedTheme)) ? savedTheme as Theme : 'purple';
     
     console.log('Initial theme:', initialTheme); // Debug log
     
@@ -68,9 +68,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const toggleTheme = () => {
     setTheme(prevTheme => {
-      if (prevTheme === 'default') return 'purple';
-      if (prevTheme === 'purple') return 'blue';
-      return 'default';
+      return prevTheme === 'purple' ? 'default' : 'purple';
     });
   };
 

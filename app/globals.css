@@ -62,18 +62,6 @@
   --sidebar-ring: oklch(0.55 0.25 300);
 }
 
-/* Blue Theme */
-[data-theme="blue"] {
-  --primary: #2b6ae0;
-  --primary-foreground: oklch(0.98 0 0);
-  --accent: #5a8de9;
-  --accent-foreground: oklch(0.98 0 0);
-  --ring: #2b6ae0;
-  --chart-1: #2b6ae0;
-  --chart-2: #5a8de9;
-  --sidebar-primary: #2b6ae0;
-  --sidebar-ring: #2b6ae0;
-}
 
 /* Dark Mode - Base */
 .dark {
@@ -136,30 +124,6 @@
   --sidebar-ring: oklch(0.65 0.2 300);
 }
 
-/* Dark Mode - Blue Theme */
-.dark[data-theme="blue"] {
-  --background: oklch(0.12 0.05 240);
-  --card: oklch(0.15 0.05 240);
-  --popover: oklch(0.15 0.05 240);
-  --secondary: oklch(0.2 0.05 240);
-  --muted: oklch(0.25 0.05 240);
-  --border: oklch(0.25 0.05 240);
-  --input: oklch(0.25 0.05 240);
-  
-  /* Blue theme overrides for dark mode */
-  --primary: #3d7df0;
-  --primary-foreground: oklch(0.98 0 0);
-  --accent: #5a8de9;
-  --accent-foreground: oklch(0.98 0 0);
-  --ring: #2b6ae0;
-  --chart-1: #3d7df0;
-  --chart-2: #5a8de9;
-  --sidebar: oklch(0.15 0.05 240);
-  --sidebar-primary: #3d7df0;
-  --sidebar-accent: oklch(0.2 0.05 240);
-  --sidebar-border: oklch(0.25 0.05 240);
-  --sidebar-ring: #2b6ae0;
-}
 
 @theme inline {
   --font-sans: "Geist", "Geist Fallback";

@@ -7,14 +7,9 @@ export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   const getThemeIcon = () => {
-    switch(theme) {
-      case 'purple':
-        return <Moon className="h-3 w-3 text-white" />;
-      case 'blue':
-        return <Sun className="h-3 w-3 text-white" />;
-      default: // default (green/gold)
-        return <Sun className="h-3 w-3 text-white" />;
-    }
+    return theme === 'purple' 
+      ? <Moon className="h-3 w-3 text-white" />
+      : <Sun className="h-3 w-3 text-white" />;
   };
 
   return (
@@ -26,9 +21,7 @@ export function ThemeToggle() {
       <span className="sr-only">Toggle theme</span>
       <span
         className={`flex h-5 w-5 transform items-center justify-center rounded-full transition-transform ${
-          theme === 'default' ? 'translate-x-0 bg-green-500' : 
-          theme === 'purple' ? 'translate-x-5 bg-purple-500' : 
-          'translate-x-10 bg-blue-500'
+          theme === 'purple' ? 'translate-x-0 bg-purple-500' : 'translate-x-5 bg-green-500'
         }`}
       >
         {getThemeIcon()}
